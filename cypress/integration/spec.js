@@ -21,8 +21,10 @@ describe('Checkboxes Page', function () {
       cy.get('[type="checkbox"]').first().should('be.checked')
       
       cy.contains('checkbox 2')
-      cy.get('[type="checkbox"]').uncheck('value="checkbox 2"]')
-      cy.get('[type="checkbox"]').should('be.unchecked')
+      cy.get('[type="checkbox"]').last().uncheck()
+      cy.get('[type="checkbox"]').last().should('not.be.checked')
+
+      cy.log('Valid checkbox states')
     })
   })
 
