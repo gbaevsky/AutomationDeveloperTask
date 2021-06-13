@@ -61,3 +61,35 @@ describe('Frames Page', function () {
 
     })
 })
+
+describe('Dynamic Loading Page', function () {
+    it('Visits Dynamic Loading Page, then proceeds to the Example 2 Link where the buttom [start] is clicked and ensures the result ["Hello World!"] appears as expected', function () {
+        cy.contains('Dynamic Loading').click()
+        cy.url().should('eq', 'http://the-internet.herokuapp.com/dynamic_loading')
+
+        cy.contains('Example 2: Element rendered after the fact').click()
+        cy.url().should('eq', 'http://the-internet.herokuapp.com/dynamic_loading/2')
+
+        //cy.get('.btn').click()
+        cy.contains('Start').click()
+        cy.contains('Hello World!')
+
+        cy.log('The string [Hello World!] appears on the webpage as expected')
+    })
+})
+
+describe('Dynamic Loading Page', function () {
+    it('Visits Dynamic Loading Page, then proceeds to the Example 2 Link where the buttom [start] is clicked and ensures the result ["Hello World!"] appears as expected', function () {
+        cy.contains('Dynamic Loading').click()
+        cy.url().should('eq', 'http://the-internet.herokuapp.com/dynamic_loading')
+
+        cy.contains('Example 2: Element rendered after the fact').click()
+        cy.url().should('eq', 'http://the-internet.herokuapp.com/dynamic_loading/2')
+
+        //cy.get('.btn').click()
+        cy.contains('Start').click()
+        cy.contains('Hello World!')
+
+        cy.log('The string [Hello World!] appears on the webpage as expected')
+    })
+})
