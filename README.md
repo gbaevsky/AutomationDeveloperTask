@@ -13,3 +13,5 @@ When should we compare URL's, validate its the correct one?
 Is my proccess ok, checking if something is contained on the page, clicking on it, checking the new URL produced...?
 
 How are my descriptions and It comments for each test, how short/descriptive should they be? -- I basically restated what was asked in the PDF steps
+
+Setting the line length of code - stopping lines from being too long - certain convention to follow for Capitolis?

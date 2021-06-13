@@ -78,18 +78,15 @@ describe('Dynamic Loading Page', function () {
     })
 })
 
-describe('Dynamic Loading Page', function () {
-    it('Visits Dynamic Loading Page, then proceeds to the Example 2 Link where the buttom [start] is clicked and ensures the result ["Hello World!"] appears as expected', function () {
-        cy.contains('Dynamic Loading').click()
-        cy.url().should('eq', 'http://the-internet.herokuapp.com/dynamic_loading')
+describe('JQueryUI Menu Page', function () {
+    it('Visits the JQueryUI Menus Page, then proceeds to click on the menu item [Enabled], followed by [Downloads] and lastly [Excel] before ensuring the excel file [menu.xls] was downloaded successfully and its tax value printed', function () {
+        cy.contains('JQuery UI Menus').click()
+        cy.url().should('eq', 'http://the-internet.herokuapp.com/jqueryui/menu')
 
-        cy.contains('Example 2: Element rendered after the fact').click()
-        cy.url().should('eq', 'http://the-internet.herokuapp.com/dynamic_loading/2')
+        cy.contains('Enabled').click()
+        cy.contains('Downloads').click()
+        cy.contains('Excel').click()
 
-        //cy.get('.btn').click()
-        cy.contains('Start').click()
-        cy.contains('Hello World!')
-
-        cy.log('The string [Hello World!] appears on the webpage as expected')
+        cy.contains('Allow').click()
     })
 })
