@@ -28,3 +28,10 @@ Cypress.Commands.add('getFrame', function () {
     return cy.get('iframe')
         .its('0.contentDocument.body')
 })
+
+//import 'cypress-file-upload';
+//require('cypress-downloadfile/lib/downloadFileCommand')
+
+Cypress.Commands.add("parseXlsx", (inputFile) => {
+    return cy.task('parseXlsx', { filePath: inputFile })
+    });

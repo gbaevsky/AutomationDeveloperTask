@@ -16,7 +16,42 @@
  * @type {Cypress.PluginConfig}
  */
 // eslint-disable-next-line no-unused-vars
+
+
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
+}
+
+/*const {downloadFile} = require('cypress-downloadfile/lib/addPlugin')
+module.exports = (on, config) => {
+  on('task', {downloadFile})
+}*/
+
+/*const xlsx = require("node-xlsx").default;
+const fs = require("fs");
+const path = require("path");
+
+module.exports = (on, config) => {
+
+  on("task", {
+    parseXlsx({ filePath }) {
+      return new Promise((resolve, reject) => {
+        try {
+          const jsonData = xlsx.parse(fs.readFileSync(filePath));
+          resolve(jsonData);
+        } catch (e) {
+          reject(e);
+        }
+      });
+    }
+  });
+};*/
+
+const readXlsx = require('./readExcel.js')
+
+module.exports = (on, config) => {
+  on('task', {
+    'readXlsx': readXlsx.read
+  })
 }
