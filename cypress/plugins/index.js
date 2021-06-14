@@ -23,17 +23,12 @@ module.exports = (on, config) => {
   // `config` is the resolved Cypress config
 }
 
-/*const {downloadFile} = require('cypress-downloadfile/lib/addPlugin')
-module.exports = (on, config) => {
-  on('task', {downloadFile})
-}*/
-
 /*const xlsx = require("node-xlsx").default;
 const fs = require("fs");
 const path = require("path");
 
 module.exports = (on, config) => {
-
+  // `on` is used to hook into various events Cypress emits
   on("task", {
     parseXlsx({ filePath }) {
       return new Promise((resolve, reject) => {
@@ -48,10 +43,11 @@ module.exports = (on, config) => {
   });
 };*/
 
-const readXlsx = require('./readExcel.js')
+/*on("before:browser:launch", (browser = {}, launchOptions) => {
+  const downloadDirectory = path.join(__dirname, '..', 'excelDownloads')
 
-module.exports = (on, config) => {
-  on('task', {
-    'readXlsx': readXlsx.read
-  })
-}
+  if (browser.family === 'chromium') {
+   launchOptions.preferences.default['download'] = { default_directory: downloadDirectory }
+  }
+  return launchOptions;
+});*/
