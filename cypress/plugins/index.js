@@ -17,18 +17,13 @@
  */
 // eslint-disable-next-line no-unused-vars
 
-
-module.exports = (on, config) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
-}
-
-/*const xlsx = require("node-xlsx").default;
+const xlsx = require("node-xlsx").default;
 const fs = require("fs");
 const path = require("path");
 
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
+  // `config` is the resolved Cypress config
   on("task", {
     parseXlsx({ filePath }) {
       return new Promise((resolve, reject) => {
@@ -41,13 +36,5 @@ module.exports = (on, config) => {
       });
     }
   });
-};*/
+};
 
-/*on("before:browser:launch", (browser = {}, launchOptions) => {
-  const downloadDirectory = path.join(__dirname, '..', 'excelDownloads')
-
-  if (browser.family === 'chromium') {
-   launchOptions.preferences.default['download'] = { default_directory: downloadDirectory }
-  }
-  return launchOptions;
-});*/

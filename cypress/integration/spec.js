@@ -86,17 +86,39 @@ describe('JQueryUI Menu Page', function () {
         cy.contains('Enabled').click()
         cy.contains('Downloads').click()
         
-        //cy.contains('Excel').click()
+        //start excel download
+
+        /*cy.contains('Excel').click()
+
+        //need to install package -> npm install node-xlsx --save-dev
+        cy.wait(2000)
         
-        //cy.visit('http://the-internet.herokuapp.com/download/jqueryui/menu/menu.xls')
-        //cy.downloadFile('http://the-internet.herokuapp.com/jqueryui/menu#',
-            //'cypress/fixtures/Download', 'menu.xls')
-        //cy.readFile('cypress/fixtures/Download/menu.xls').should('contain', 'tax')
-        
-        /*cy.parseXlsx("/Users/user/Desktop/AutomationDeveloperTask/cypress/downloads/menu.xls").then(
+    
+        cy.parseXlsx("/Users/user/Desktop/AutomationDeveloperTask/cypress/downloads/menu.xls").then(
             jsonData => {
               // finally we write the assertion rule to check if that data matches the data we expected the excel file to have.
-              expect(jsonData[0].data[0]).to.eqls(data); })*/
+              expect(jsonData[0].data[0]).to.eqls(data);
+            })
+        
+        if (window.Cypress) {
+            setTimeout(() => location.reload(), 3000);
+        }*/
+        
+        const data = [
+            "id",
+            "number of items",
+            "subtotal",
+            "tax",
+            "total"
+        ]
 
+        cy.contains('Excel').click().then((anchor) => {
+            const url = anchor.prop('href');
+            cy.request(url).then(        
+                cy.parseXlsx("/Users/user/Desktop/AutomationDeveloperTask/cypress/downloads/menu.xls").then(
+                    jsonData => {
+                    expect(jsonData[0].data[0]).to.eqls(data);
+                }));
+          });
     })
 })
