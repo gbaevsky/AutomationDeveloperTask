@@ -104,6 +104,9 @@ describe('JQueryUI Menu Page', function () {
             setTimeout(() => location.reload(), 3000);
         }*/
         
+        const id= "ui-id-8" 
+        const href= "/download/jqueryui/menu/menu.xls"
+        
         const data = [
             "id",
             "number of items",
@@ -111,6 +114,14 @@ describe('JQueryUI Menu Page', function () {
             "tax",
             "total"
         ]
+
+        document.getElementById('download-file').onclick = function(event) {
+            // In test, prevent the browser from actually downloading the file.
+            if (window.Cypress) {
+              event.preventDefault();
+            }
+            setupFileOverWebSockets('ABCDEFGH');
+        }
 
         cy.contains('Excel').click().then((anchor) => {
             const url = anchor.prop('href');
