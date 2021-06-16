@@ -115,13 +115,13 @@ describe('JQueryUI Menu Page', function () {
             "total"
         ]
 
-        document.getElementById('download-file').onclick = function(event) {
+        /*document.getElementById('download-file').onclick = function(event) {
             // In test, prevent the browser from actually downloading the file.
             if (window.Cypress) {
               event.preventDefault();
             }
             setupFileOverWebSockets('ABCDEFGH');
-        }
+        }*/
 
         cy.contains('Excel').click().then((anchor) => {
             const url = anchor.prop('href');
@@ -131,5 +131,9 @@ describe('JQueryUI Menu Page', function () {
                     expect(jsonData[0].data[0]).to.eqls(data);
                 }));
           });
+        
+        if (window.Cypress) {
+            setTimeout(() => location.reload(), 3000);
+        }
     })
 })
